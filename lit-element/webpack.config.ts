@@ -1,3 +1,4 @@
+//@ts-nocheck
 const webpack = require("webpack");
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -8,8 +9,8 @@ const path = require("path");
 const dotenv = require("dotenv").config({
     path: path.join(__dirname, ".env"),
 });
-const modeConfig = (env) =>
-    require(`./build-utils/webpack.${env.mode}.js`)(env);
+
+const modeConfig = (env) => require(`./webpack/webpack.${env.mode}.ts`)(env);
 
 const webcomponentsjs = "./node_modules/@webcomponents/webcomponentsjs";
 
@@ -55,7 +56,6 @@ function getClientEnv(nodeEnv) {
 }
 
 module.exports = (webpackEnv) => {
-    // mode : development | production
     const { mode, presets } = webpackEnv;
 
     const plugins = [
@@ -75,13 +75,15 @@ module.exports = (webpackEnv) => {
     ];
 
     if (mode === "production") {
-        pugins.push(new CleanWebpackPlugin([path.resolve(__dirname, "build")]));
+        plugins.push(
+            new CleanWebpackPlugin([path.resolve(__dirname, "build")])
+        );
     }
 
-    env = getClientEnv(webpackEnv);
+    const env = getClientEnv(webpackEnv);
     return webpackMerge(
         {
-            mode,
+            mode: mode === "production" ? "production" : "development",
             output: {
                 path: path.resolve(__dirname, "build"),
                 publicPath: "/",
@@ -127,6 +129,6 @@ module.exports = (webpackEnv) => {
                 }),
             ],
         },
-        modeConfig({ mode, presets })
+        modeConfig({ mode })
     );
 };

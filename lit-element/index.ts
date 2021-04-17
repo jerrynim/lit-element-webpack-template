@@ -1,4 +1,5 @@
 import { Router } from "@vaadin/router";
+import "./styles/resetCss.css";
 
 window.addEventListener("load", () => {
     initRouter();
@@ -10,6 +11,9 @@ function initRouter() {
         {
             path: "/",
             component: "lit-element",
+            action: () => {
+                import("./components//lit-element");
+            },
         },
     ]);
 }
