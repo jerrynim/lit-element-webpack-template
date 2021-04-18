@@ -8,6 +8,7 @@ class Element extends LitElement {
                 ${resetCss}
             </style>
             <h1>Hello lit-element</h1>
+            <img src="/static/go10.png" />
         `;
     }
 }
