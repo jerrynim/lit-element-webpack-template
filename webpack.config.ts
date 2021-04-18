@@ -35,7 +35,7 @@ const polyfills = [
 const assets = [
     {
         from: path.resolve(__dirname, "public"),
-        to: path.resolve(__dirname, "build/static"),
+        to: path.resolve(__dirname, "build"),
     },
 ];
 

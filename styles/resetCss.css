@@ -102,6 +102,7 @@ section {
 }
 body {
     line-height: 1.2;
+    font-family: Open Sans, Nanum Barun Gothic, sans-serif;
 }
 ol,
 ul {
@@ -121,4 +122,39 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("/fonts/openSans.woff2") format("woff2"),
+        url("/fonts/openSans.woff") format("woff"),
+        url("/fonts/openSans.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url("/fonts/openSansBold.woff2") format("woff2"),
+        url("/fonts/openSansBold.woff") format("woff"),
+        url("/fonts/openSansBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Nanum Barun Gothic";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("/fonts/NanumBarunGothic.woff2") format("woff2"),
+        url("/fonts/NanumBarunGothic.woff") format("woff"),
+        url("/fonts/NanumBarunGothic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url("/fonts/NanumBarunGothicBold.woff2") format("woff2"),
+        url("/fonts/NanumBarunGothicBold.woff") format("woff"),
+        url("/fonts/NanumBarunGothicBold.ttf") format("truetype");
 }
